@@ -13,6 +13,8 @@ if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password']))
     ));
 }
 
+$stmt = $pdo->query("SELECT name, email, password FROM users"); 
+$rows = $stmt->fetchAll(PDO::FETCH_ASSOC); 
 ?>
 
 <!DOCTYPE html>
@@ -23,6 +25,19 @@ if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password']))
     <title>User1.php</title>
 </head>
 <body>
+    <table border="1">
+        <?php
+        foreach($rows as $row){
+            echo "<tr><td>"; 
+            echo($row['name']); 
+            echo ("</td><td>");
+            echo($row['email']);
+            echo ("</td><td>");
+            echo($row['password']);
+            echo ("</td></tr>\n");
+        }
+        ?>
+    </table>
     <p>Add a New User</p>
     <form method="post">
         <p>Name: <input type="text" name="name" size="40"></p>
