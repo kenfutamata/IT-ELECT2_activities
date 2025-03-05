@@ -9,7 +9,7 @@ if ( isset($_POST['email']) && isset($_POST['password']) ) {
          WHERE email = '$e'
          AND password = '$p'";
     $stmt = $pdo->query($sql);
- 
+    $user = $stmt->fetchAll(PDO::FETCH_ASSOC); 
 }
 ?>
 
@@ -21,6 +21,15 @@ if ( isset($_POST['email']) && isset($_POST['password']) ) {
     <title>Login</title>
 </head>
 <body>
+<?php
+if ( isset($_POST['email']) && isset($_POST['password']) ) {
+    if($user){
+        echo ("Login Success");
+    }else{
+        echo ("Login Failed");
+    }
+}
+?>
 <p>Please Login</p>
     <form method="post">
         <p>Email: <input type="email" name="email"></p>
