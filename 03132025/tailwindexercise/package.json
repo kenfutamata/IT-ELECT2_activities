@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "@tailwindcss/cli": "^4.0.9",
+    "tailwindcss": "^4.0.9"
+  },
+  "scripts": {
+    "lite": "lite-server --port 10001",
+    "start": "npm run lite",
+    "watch": "npx tailwindcss/cli -i ./src -o/sec/main.css --watch"
+  },
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
